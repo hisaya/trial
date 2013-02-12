@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<root>
+
+	<item>
+		<name>Mouse Left Button to Modifier</name>
+		<appendix>ex.</appendix>
+		<appendix>Right Button to Option (Drag and Copy Items)</appendix>
+		<appendix>Middle Button to Command+Tab (Switch Applications)</appendix>
+		<appendix>Scroll Wheel to Command(+Shift)+Z (Unod/Redo)</appendix>
+		<appendix>Space to Return</appendix>
+		<identifier>private.mouse_left_button_modifier</identifier>
+
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::LEFT, ModifierFlag::NONE,
+			KeyCode::VK_MODIFIER_EXTRA1,
+	
+			Option::KEYTOKEY_BEFORE_KEYDOWN,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_LEFT,
+
+			Option::KEYTOKEY_AFTER_KEYUP,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+		</autogen>
+
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::RIGHT, ModifierFlag::EXTRA1,
+			KeyCode::OPTION_L
+		</autogen>
+
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::MIDDLE, ModifierFlag::EXTRA1,
+			KeyCode::TAB, ModifierFlag::COMMAND_L,
+		</autogen>
+
+		<autogen>
+			__ScrollWheelToKey__
+			ScrollWheel::UP, ModifierFlag::EXTRA1,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+			KeyCode::Z, ModifierFlag::COMMAND_L,
+		</autogen>
+
+		<autogen>
+			__ScrollWheelToKey__
+			ScrollWheel::DOWN, ModifierFlag::EXTRA1,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+			KeyCode::Z, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+		</autogen>
+
+		<autogen>
+			__KeyToKey__
+			KeyCode::SPACE, ModifierFlag::EXTRA1,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+			KeyCode::RETURN,
+		</autogen>
+
+	</item>
+</root>
