@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<root>
+
+	<item>
+		<name>mouse button modifier</name>
+		<identifier>private.mouse_button_modifier</identifier>
+	
+	<!-- 左ボタンを押してる間、右ボタンをOptionキーに -->
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::LEFT, ModifierFlag::NONE,
+			KeyCode::VK_MOUSEKEY_BUTTON_LEFT,
+	
+			Option::KEYTOKEY_BEFORE_KEYDOWN,
+			KeyCode::VK_LOCK_EXTRA1_FORCE_ON,
+	
+			Option::KEYTOKEY_AFTER_KEYUP,
+			KeyCode::VK_LOCK_EXTRA1_FORCE_OFF,
+		</autogen>
+	
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::RIGHT, ModifierFlag::EXTRA1,
+			KeyCode::OPTION_L
+		</autogen>
+	
+	<!-- 右ボタンを押してる間、左ボタンをShift+Clickに -->
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::RIGHT, ModifierFlag::NONE,
+			KeyCode::VK_MODIFIER_EXTRA2,
+	
+			Option::KEYTOKEY_BEFORE_KEYDOWN,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_RIGHT,
+	
+			Option::KEYTOKEY_AFTER_KEYUP,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+		</autogen>
+	
+		<autogen>
+			__PointingButtonToKey__
+			PointingButton::LEFT, ModifierFlag::EXTRA2,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+			KeyCode::VK_MOUSEKEY_BUTTON_LEFT, ModifierFlag::SHIFT_L,
+		</autogen>
+
+	</item>
+</root>
