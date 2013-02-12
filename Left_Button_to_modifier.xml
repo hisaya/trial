@@ -14,43 +14,58 @@
 			__PointingButtonToKey__
 			PointingButton::LEFT, ModifierFlag::NONE,
 			KeyCode::VK_MODIFIER_EXTRA1,
-	
+
 			Option::KEYTOKEY_BEFORE_KEYDOWN,
 			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_LEFT,
+			KeyCode::VK_LOCK_EXTRA2_FORCE_ON,
+			<!-- VK_LOCK_EXTRA2 is necessary for Middle Button to Command+Tab (Switch Applications) -->
 
 			Option::KEYTOKEY_AFTER_KEYUP,
 			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
+			KeyCode::VK_LOCK_EXTRA2_FORCE_OFF,
 		</autogen>
 
+<!-- Right Button to Option (Drag and Copy Items) -->
 		<autogen>
 			__PointingButtonToKey__
-			PointingButton::RIGHT, ModifierFlag::EXTRA1,
+			PointingButton::RIGHT, ModifierFlag::EXTRA1 | ModifierFlag::EXTRA2 | ModifierFlag::NONE,
 			KeyCode::OPTION_L
 		</autogen>
 
+<!-- Middle Button to Command+Tab (Switch Applications) -->
 		<autogen>
 			__PointingButtonToKey__
-			PointingButton::MIDDLE, ModifierFlag::EXTRA1,
+			PointingButton::MIDDLE, ModifierFlag::EXTRA1 | ModifierFlag::EXTRA2 | ModifierFlag::NONE,
+			KeyCode::VK_LOCK_EXTRA2_FORCE_OFF,
+			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
 			KeyCode::TAB, ModifierFlag::COMMAND_L,
 		</autogen>
 
 		<autogen>
+			__PointingButtonToKey__
+			PointingButton::MIDDLE, ModifierFlag::EXTRA1 | ModifierFlag::NONE,
+			KeyCode::TAB, ModifierFlag::COMMAND_L,
+		</autogen>
+
+<!-- Scroll Wheel to Command(+Shift)+Z (Unod/Redo) -->
+		<autogen>
 			__ScrollWheelToKey__
-			ScrollWheel::UP, ModifierFlag::EXTRA1,
+			ScrollWheel::UP, ModifierFlag::EXTRA1 | ModifierFlag::EXTRA2 | ModifierFlag::NONE,
 			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
 			KeyCode::Z, ModifierFlag::COMMAND_L,
 		</autogen>
 
 		<autogen>
 			__ScrollWheelToKey__
-			ScrollWheel::DOWN, ModifierFlag::EXTRA1,
+			ScrollWheel::DOWN, ModifierFlag::EXTRA1 | ModifierFlag::EXTRA2 | ModifierFlag::NONE,
 			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
 			KeyCode::Z, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
 		</autogen>
 
+<!-- Space to Return -->
 		<autogen>
 			__KeyToKey__
-			KeyCode::SPACE, ModifierFlag::EXTRA1,
+			KeyCode::SPACE, ModifierFlag::EXTRA1 | ModifierFlag::EXTRA2 | ModifierFlag::NONE,
 			KeyCode::VK_MOUSEKEY_LOCK_BUTTON_ALL_FORCE_OFF,
 			KeyCode::RETURN,
 		</autogen>
